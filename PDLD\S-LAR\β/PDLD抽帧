@@ -1,0 +1,5 @@
+parm 133.prmtop
+trajin aa1.nc 1 2000 67
+autoimage
+trajout frames/frame.pdb pdb multi
+run
