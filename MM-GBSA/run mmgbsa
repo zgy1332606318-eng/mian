@@ -1,0 +1,1 @@
+MMPBSA.py -O -i mmpbsa.in -cp Mpro-4wi.prmtop -rp receptor.prmtop -lp ligand.prmtop -y merged.nc
