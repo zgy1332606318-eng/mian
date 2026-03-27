@@ -1,0 +1,8 @@
+$STRINGSETUP
+dir = "results/"
+remove_z_bias = .false.
+fix_ends = .false.
+preparation_steps = 1000
+guess_file = "0_final.string"
+buffer_size = 500
+$END
