@@ -1,0 +1,10 @@
+2
+$COLVAR
+COLVAR_type = "BOND"
+atoms = 2242, 617	!His164.HE(CYSHG)...His164NE
+$END
+
+$COLVAR
+COLVAR_type = "BOND"
+atoms = 2241,2242 	!S··HE.His164(CYSHG)
+$END
