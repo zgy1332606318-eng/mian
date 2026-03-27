@@ -1,0 +1,35 @@
+# batch_replace_residues_inplace.py
+
+# 要批量处理的文件范围
+start_num = 5
+end_num = 30
+
+replace_map = {
+    "HID": "HIS",
+    "MOL": "LIG"
+}
+
+for i in range(start_num, end_num + 1):
+    file_path = f"frame_{i:03d}.pdb"  # 生成 frame_005.pdb 这样的文件名
+
+    try:
+        with open(file_path, "r") as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        print(f"❌ 文件不存在: {file_path}")
+        continue
+
+    new_lines = []
+    for line in lines:
+        if line.startswith(("ATOM", "HETATM")):
+            resname = line[17:20]
+            resname_stripped = resname.strip()
+            if resname_stripped in replace_map:
+                new_resname = replace_map[resname_stripped].ljust(3)
+                line = line[:17] + new_resname + line[20:]
+        new_lines.append(line)
+
+    with open(file_path, "w") as f:
+        f.writelines(new_lines)
+
+    print(f"✅ {file_path} 已修改完成（原地替换 HID→HIS, MOL→LIG）")
