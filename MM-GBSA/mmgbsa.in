@@ -1,0 +1,10 @@
+ &general
+   startframe=1, endframe=5700, interval=5,
+   verbose=1, entropy =0
+/
+&gb
+  saltcon=0.150
+/
+&decomp
+  idecomp=2
+/
