@@ -1,0 +1,66 @@
+./frame_001.pdb keepnoh
+pl
+   pre_pol
+#      iontyp ASP
+#      iontyp GLU
+#      iontyp ARG
+#      iontyp LYS
+ #     ionres 41
+ #       ionres 41 163 164 166 172 175 187
+
+#        ionres 187 166 163 40 164 172 161 44 85
+#        ionres_half 187 166 163 40 164 172 161 44 85
+
+   end
+
+  bind_pdld
+    reg1_res 611
+    config 0 8
+
+    md_parm_r
+      temp 300
+      ss 0.001
+      nsteps 20000
+      region2a_r 20.0
+      water_r 20.0
+      langevin_r      30
+      #constraint_1 0.03
+      #constraint_2 5.0
+      #constraint_pair 615 2239 10.0 3.0
+      #constraint_post 9348  10.0  10.0  10.0  22.120  55.919  32.526
+    end
+
+    md_parm_w
+      temp 300
+      ss 0.001
+      nsteps 20000
+      region2a_r 20.0
+      water_r 20.0
+      langevin_r      30
+      constraint_1 0.03
+      constraint_2 10.0
+    end
+
+    md_parm_p
+      temp 300
+      ss 0.001
+      nsteps 20000
+      region2a_r 20.0
+      water_r 20.0
+      langevin_r      30
+      constraint_1 0.03
+      constraint_2 10.0
+      #constraint_pair 615 2239 10.0 3.0
+      #constraint_post 9348  10.0  10.0  10.0  22.120  55.919  32.526
+#      constraint_post 9348 10.0  10.0  10.0  -5.245   7.808  14.925
+    end
+  end
+end
+
+analyze
+  makepdb
+    residue all
+    file_nm binded.pdb write_connect
+  end
+end
+end
